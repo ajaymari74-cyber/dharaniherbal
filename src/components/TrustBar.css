@@ -1,0 +1,88 @@
+/* Glassmorphic TrustBar Styles matching Hero Mockup */
+.dh-trust-bar-wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: -10px auto 45px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 20;
+}
+
+.dh-trust-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  padding: 16px 32px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.dh-trust-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dh-trust-item + .dh-trust-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.dh-trust-item span.trust-icon {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.dh-trust-item strong {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 1024px) {
+  .dh-trust-bar {
+    padding: 14px 20px;
+  }
+  .dh-trust-item {
+    font-size: 13.5px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dh-trust-bar {
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 20px;
+    gap: 16px 12px;
+    padding: 18px 16px;
+  }
+  .dh-trust-item + .dh-trust-item {
+    border-left: none;
+  }
+  .dh-trust-item {
+    justify-content: flex-start;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dh-trust-bar-wrapper {
+    padding: 0 14px;
+    margin-top: 5px;
+  }
+  .dh-trust-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

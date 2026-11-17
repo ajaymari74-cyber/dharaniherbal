@@ -1,0 +1,377 @@
+/* Screen 1: Hero Section Layout & Animations */
+.dh-hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0 20px;
+}
+
+.dh-home-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  gap: 30px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 10px 32px 30px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Copy */
+.dh-home-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #fff;
+  z-index: 15;
+}
+
+.dh-home-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  width: fit-content;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dh-home-heading {
+  font-size: clamp(38px, 4.4vw, 58px);
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  letter-spacing: -1px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.dh-beauty-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #ffd166;
+  text-shadow: 0 2px 12px rgba(255, 209, 102, 0.5);
+}
+
+.dh-home-description {
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 480px;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dh-home-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.dh-home-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(100deg, #ffc83b 0%, #ffae19 100%);
+  color: #1a2e20;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(255, 174, 25, 0.45);
+  transition: all 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dh-home-primary-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 174, 25, 0.6);
+}
+
+.dh-home-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.24s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.dh-home-secondary-cta:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Right 3D Visual Stage */
+.dh-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Giant Glass Dome / Bubble */
+.dh-hero-bubble-dome {
+  position: absolute;
+  width: min(480px, 90%);
+  height: min(480px, 90%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(0, 217, 239, 0.15) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: bubbleBreathe 6s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes bubbleBreathe {
+  0% { transform: scale(0.98); }
+  100% { transform: scale(1.02); }
+}
+
+/* Center Hero Jar */
+.dh-center-dome-product {
+  position: relative;
+  z-index: 6;
+  width: 320px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dh-center-dome-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.28));
+  animation: centerJarFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes centerJarFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Left Floating Card: Herbal Hair Oil */
+.dh-float-card {
+  position: absolute;
+  z-index: 10;
+  width: 175px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dh-float-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+}
+
+.dh-float-left {
+  left: 2%;
+  top: 48%;
+  transform: translateY(-50%) rotate(-4deg);
+  animation: floatLeftCard 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatLeftCard {
+  0% { transform: translateY(-50%) rotate(-4deg); }
+  100% { transform: translateY(-56%) rotate(-2deg); }
+}
+
+.dh-float-right {
+  right: 2%;
+  top: 48%;
+  transform: translateY(-50%) rotate(4deg);
+  animation: floatRightCard 6.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatRightCard {
+  0% { transform: translateY(-50%) rotate(4deg); }
+  100% { transform: translateY(-56%) rotate(2deg); }
+}
+
+.dh-card-img-box {
+  width: 100%;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.dh-card-img-box img {
+  max-height: 105px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.dh-float-card:hover .dh-card-img-box img {
+  transform: scale(1.08);
+}
+
+.dh-card-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #173b2a;
+  text-align: center;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.dh-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.dh-card-price {
+  font-size: 15px;
+  font-weight: 900;
+  color: #e11d48;
+}
+
+.dh-card-cart-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.dh-card-cart-btn:hover {
+  transform: scale(1.15);
+}
+
+/* Floating Botanical Elements */
+.dh-leaf-decor {
+  position: absolute;
+  pointer-events: none;
+  font-size: 38px;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+  z-index: 8;
+  animation: leafWiggle 5s ease-in-out infinite alternate;
+}
+
+.dh-leaf-pos-1 { top: 10%; left: 16%; }
+.dh-leaf-pos-2 { top: 12%; right: 18%; animation-delay: 1s; }
+.dh-leaf-pos-3 { bottom: 14%; left: 8%; animation-delay: 2s; }
+.dh-leaf-pos-4 { bottom: 12%; right: 10%; animation-delay: 1.5s; }
+
+@keyframes leafWiggle {
+  0% { transform: translateY(0) rotate(-6deg); }
+  100% { transform: translateY(-10px) rotate(6deg); }
+}
+
+@media (max-width: 1100px) {
+  .dh-home-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .dh-home-copy {
+    align-items: center;
+  }
+  .dh-home-description {
+    max-width: 600px;
+  }
+  .dh-home-actions {
+    justify-content: center;
+  }
+  .dh-stage-wrapper {
+    height: 460px;
+  }
+  .dh-float-card {
+    width: 150px;
+  }
+  .dh-card-img-box {
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dh-home-hero-layout {
+    padding: 10px 18px 20px;
+  }
+  .dh-stage-wrapper {
+    height: 380px;
+  }
+  .dh-hero-bubble-dome {
+    width: 290px;
+    height: 290px;
+  }
+  .dh-center-dome-product {
+    width: 220px;
+  }
+  .dh-center-dome-img {
+    max-width: 200px;
+  }
+  .dh-float-card {
+    width: 125px;
+    padding: 8px;
+  }
+  .dh-card-img-box {
+    height: 75px;
+  }
+  .dh-card-title {
+    font-size: 11px;
+  }
+  .dh-card-price {
+    font-size: 12px;
+  }
+  .dh-card-cart-btn {
+    width: 24px;
+    height: 24px;
+  }
+}
