@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import {
@@ -17,11 +17,16 @@ export default function Header() {
   const { cartCount, wishlistCount, setSearchOpen } = useCart();
   const location = useLocation();
 
+  useEffect(() => {
+    setMobileOpen(false);
+    setDropdownOpen(false);
+  }, [location.pathname, location.search]);
+
   const isActive = (path) => location.pathname === path;
 
   return (
     <header className="site-header">
-      <div className="header-inner container">
+      <div className="header-inner">
         {/* Brand Logo */}
         <Link className="brand-logo" to="/" aria-label="Dharani Herbals Home">
           <div className="brand-logo-leaf">
@@ -39,14 +44,14 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation Capsule */}
+        {/* Desktop & Laptop Navigation Capsule */}
         <nav className="desktop-navigation" aria-label="Main navigation">
           <div className="nav-capsule">
             <Link
               className={`nav-capsule-item ${isActive('/') ? 'active' : ''}`}
               to="/"
             >
-              <IconHome size={16} className="nav-home-icon" />
+              <IconHome size={15} className="nav-home-icon" />
               <span>Home</span>
             </Link>
 
@@ -112,12 +117,12 @@ export default function Header() {
           </button>
 
           <Link className="header-icon-btn with-badge" aria-label="Wishlist" to="/cart">
-            <IconHeart size={19} />
+            <IconHeart size={18} />
             <span className="badge-count">{wishlistCount}</span>
           </Link>
 
           <Link className="header-icon-btn with-badge" aria-label="Shopping cart" to="/cart">
-            <IconShoppingCart size={19} />
+            <IconShoppingCart size={18} />
             <span className="badge-count">{cartCount}</span>
           </Link>
 
@@ -129,7 +134,8 @@ export default function Header() {
           <button
             type="button"
             className="mobile-menu-toggle"
-            aria-label="Open menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             <svg
@@ -138,7 +144,7 @@ export default function Header() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.2"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -159,43 +165,58 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile & Tablet Drawer */}
       {mobileOpen && (
         <div className="mobile-nav-drawer">
           <Link
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
             to="/"
             onClick={() => setMobileOpen(false)}
           >
-            Home
+            <IconHome size={17} />
+            <span>Home</span>
           </Link>
           <Link
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${location.pathname.startsWith('/shop') ? 'active' : ''}`}
             to="/shop"
             onClick={() => setMobileOpen(false)}
           >
-            Collections
+            <span>Collections</span>
           </Link>
+          <div className="mobile-sub-cats">
+            <Link to="/shop?cat=Skin%20Care" onClick={() => setMobileOpen(false)}>Skin Care</Link>
+            <Link to="/shop?cat=Hair%20Care" onClick={() => setMobileOpen(false)}>Hair Care</Link>
+            <Link to="/shop?cat=Body%20Care" onClick={() => setMobileOpen(false)}>Body Care</Link>
+            <Link to="/shop?cat=Wellness" onClick={() => setMobileOpen(false)}>Wellness</Link>
+          </div>
           <Link
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
             to="/about"
             onClick={() => setMobileOpen(false)}
           >
-            About Us
+            <span>About Us</span>
           </Link>
           <Link
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`}
             to="/contact"
             onClick={() => setMobileOpen(false)}
           >
-            Contact
+            <span>Contact</span>
           </Link>
           <Link
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${isActive('/cart') ? 'active' : ''}`}
             to="/cart"
             onClick={() => setMobileOpen(false)}
           >
-            My Cart ({cartCount})
+            <span>My Cart ({cartCount})</span>
+          </Link>
+          <Link
+            className="mobile-drawer-cta"
+            to="/shop"
+            onClick={() => setMobileOpen(false)}
+          >
+            <span>Shop Now</span>
+            <IconArrowRight size={15} />
           </Link>
         </div>
       )}

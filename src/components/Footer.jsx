@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="master-site-footer">
       {/* Screen 7: Floral Botanical Banner */}
       <section className="footer-floral-banner">
-        <div className="banner-inner container">
+        <div className="banner-inner">
           <div className="banner-content">
             <div className="banner-logo-badge">
               <img
@@ -58,7 +58,7 @@ export default function Footer() {
 
       {/* Screen 8: Deep Emerald Luxury Glassmorphic Footer */}
       <div className="footer-deep-emerald">
-        <div className="footer-grid-container container">
+        <div className="footer-grid-container">
           {/* Column 1: Brand Info */}
           <div className="footer-col-brand">
             <Link className="footer-brand-lockup" to="/">
@@ -184,7 +184,7 @@ export default function Footer() {
         </div>
 
         {/* Sub-bar */}
-        <div className="footer-sub-bar container">
+        <div className="footer-sub-bar">
           <span>&copy; 2026 Dharani Herbals. All rights reserved.</span>
           <span className="footer-made-with">Made with ❤️ by Nature</span>
         </div>

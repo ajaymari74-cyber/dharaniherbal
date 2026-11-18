@@ -6,13 +6,14 @@ import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 import { IconArrowRight, IconLeaf, IconAward } from '../components/Icons';
 import './Home.css';
+import './About.css';
 
 export default function Home() {
   const featured = products.slice(0, 4);
 
   return (
     <div className="home-canvas">
-      <div className="home-container container">
+      <div className="home-container">
         {/* Screen 1: Hero */}
         <Hero />
 

@@ -190,9 +190,11 @@ export default function Cart() {
             style={{
               background: '#fff',
               borderRadius: '24px',
-              padding: '28px',
+              padding: '24px 20px',
               maxWidth: '520px',
               width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
               boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
               position: 'relative'
             }}

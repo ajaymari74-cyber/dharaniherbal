@@ -1,23 +1,23 @@
-/* Glassmorphic TrustBar Styles matching Hero Mockup */
+/* Glassmorphic TrustBar Styles — Laptop, Tablet & Mobile Responsive */
 .dh-trust-bar-wrapper {
   width: 100%;
   max-width: 1360px;
-  margin: -10px auto 45px;
-  padding: 0 24px;
+  margin: 0 auto 42px;
+  padding: 0 32px;
   position: relative;
   z-index: 20;
 }
 
 .dh-trust-bar {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   border-radius: 9999px;
-  padding: 16px 32px;
+  padding: 15px 24px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
@@ -25,12 +25,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-  font-size: 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.32);
+  font-size: 14.5px;
   font-weight: 700;
-  white-space: nowrap;
+  padding: 0 10px;
 }
 
 .dh-trust-item + .dh-trust-item {
@@ -38,7 +38,8 @@
 }
 
 .dh-trust-item span.trust-icon {
-  font-size: 22px;
+  font-size: 21px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,42 +48,73 @@
 
 .dh-trust-item strong {
   font-weight: 800;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
+  white-space: nowrap;
 }
 
-@media (max-width: 1024px) {
+/* Laptop (1024px - 1280px) */
+@media (max-width: 1240px) {
+  .dh-trust-bar-wrapper {
+    padding: 0 24px;
+  }
   .dh-trust-bar {
-    padding: 14px 20px;
+    padding: 13px 16px;
   }
   .dh-trust-item {
-    font-size: 13.5px;
-    gap: 8px;
+    font-size: 13px;
+    gap: 7px;
+    padding: 0 6px;
+  }
+  .dh-trust-item span.trust-icon {
+    font-size: 18px;
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet (<= 920px) */
+@media (max-width: 920px) {
   .dh-trust-bar {
-    grid-template-columns: repeat(2, 1fr);
-    border-radius: 20px;
-    gap: 16px 12px;
-    padding: 18px 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 22px;
+    gap: 14px 12px;
+    padding: 16px 18px;
   }
   .dh-trust-item + .dh-trust-item {
     border-left: none;
   }
   .dh-trust-item {
     justify-content: flex-start;
-    font-size: 13px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+    font-size: 13.5px;
+  }
+  .dh-trust-item strong {
+    white-space: normal;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile (<= 600px) */
+@media (max-width: 600px) {
   .dh-trust-bar-wrapper {
     padding: 0 14px;
-    margin-top: 5px;
+    margin-bottom: 28px;
   }
   .dh-trust-bar {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+  .dh-trust-item {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 8px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .dh-trust-item span.trust-icon {
+    font-size: 20px;
   }
 }
